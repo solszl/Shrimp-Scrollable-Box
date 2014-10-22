@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.shrimp.ext.scrollable.controls.VIndicator"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.BaseIndicator"/>
+    <classEntry path="com.shrimp.ext.scrollable.constant.TouchStates"/>
+    <classEntry path="com.shrimp.ext.scrollable.constant.SwipDirections"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.HIndicator"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.ScrollBox"/>
+    <classEntry path="com.shrimp.ext.scrollable.events.ScrollEvent"/>
+    <classEntry path="com.shrimp.ext.scrollable.constant.ScrollConstant"/>
+    <classEntry path="com.shrimp.ext.scrollable.constant.ScrollConfig"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.VScrollBox"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.IIndicator"/>
+    <classEntry path="com.shrimp.ext.scrollable.controls.TouchBox"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
