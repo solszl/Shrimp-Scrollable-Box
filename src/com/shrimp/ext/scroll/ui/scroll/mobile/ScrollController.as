@@ -1,4 +1,4 @@
-package com.freshplanet.lib.ui.scroll.mobile
+package com.shrimp.ext.scroll.ui.scroll.mobile
 {
 	import com.shrimp.framework.ui.controls.core.Component;
 	

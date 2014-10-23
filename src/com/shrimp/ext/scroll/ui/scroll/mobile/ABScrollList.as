@@ -1,6 +1,6 @@
-package com.freshplanet.lib.ui.scroll.mobile
+package com.shrimp.ext.scroll.ui.scroll.mobile
 {
-	import com.freshplanet.lib.util.pool.IPool;
+	import com.shrimp.ext.scroll.util.pool.IPool;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Shape;

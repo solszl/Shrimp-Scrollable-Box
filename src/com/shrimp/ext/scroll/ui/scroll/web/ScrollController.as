@@ -1,4 +1,4 @@
-package com.freshplanet.lib.ui.scroll.web
+package com.shrimp.ext.scroll.ui.scroll.web
 {
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
