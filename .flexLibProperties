@@ -8,8 +8,6 @@
     <classEntry path="com.shrimp.ext.scrollable.controls.HIndicator"/>
     <classEntry path="com.shrimp.ext.scrollable.controls.ScrollBox"/>
     <classEntry path="com.shrimp.ext.scrollable.events.ScrollEvent"/>
-    <classEntry path="com.shrimp.ext.scrollable.constant.ScrollConstant"/>
-    <classEntry path="com.shrimp.ext.scrollable.constant.ScrollConfig"/>
     <classEntry path="com.shrimp.ext.scrollable.controls.VScrollBox"/>
     <classEntry path="com.shrimp.ext.scrollable.controls.IIndicator"/>
     <classEntry path="com.shrimp.ext.scrollable.controls.TouchBox"/>

@@ -11,10 +11,10 @@ package com.freshplanet.lib.ui.scroll.mobile
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 
-	public class AlphabetizedScrollList extends Sprite
+	public class ABScrollList extends Sprite
 	{
 
-		private static var SYMBOLS:String = 'AlphabetizedScrollList.SYMBOLS';
+		private static var SYMBOLS:String = 'ABScrollList.SYMBOLS';
 
 		private static var ALPHABET:Array = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', {label:'1', data:'123456789'}];
 
@@ -49,7 +49,7 @@ package com.freshplanet.lib.ui.scroll.mobile
 		private var _getListItemBounds:Function;
 
 		//alphaIndex: function(elementData):String   initElementFct:function(DisplayObject, elementData):void  initAnchorFct: function(DisplayObject, String):void
-		public function AlphabetizedScrollList(dataProvider:Vector.<Object>, viewport:Rectangle, alphaIndex:Function, elementPool:IPool, initElementFct:Function, anchorPool:IPool, initAnchorFct:Function)
+		public function ABScrollList(dataProvider:Vector.<Object>, viewport:Rectangle, alphaIndex:Function, elementPool:IPool, initElementFct:Function, anchorPool:IPool, initAnchorFct:Function)
 		{
 
 			super();
