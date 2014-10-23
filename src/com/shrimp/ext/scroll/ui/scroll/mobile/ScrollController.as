@@ -39,9 +39,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 		 */
 		public static const PAGE_CHANGE : String = "PageChange";
 		
-		// Toggle debug statements.
-		private static const DEBUG : Boolean = false;
-		
 		// Scrolling parameters
 		private static const SCROLLING_MIN_AMPLITUDE : Number = 1; // in pixels
 		private static const SCROLLING_MIN_SPEED : Number = 0.01; // in pixels/ms
@@ -671,12 +668,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 		 */
 		private function manageFingerScrolling( deltaTime : Number ) : void
 		{
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('---- Start managing finger scrolling');
-			}
-			
 			// Compute the scrolling amplitude
 			var delta:Point = _content.globalToLocal(_previousFingerPosition).subtract(_content.globalToLocal(_currentFingerPosition));
 			if (!horizontalScrollingEnabled) delta.x = 0;
@@ -692,13 +683,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			
 			// Indicate that finger touch has been processed
 			_pendingTouch = false;
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('------ _currentFingerPosition = ' + _currentFingerPosition + ' | speed = ' + speed + ' | delta = ' + delta + ' | deltaTime = ' + deltaTime);
-				trace('---- Stop managing finger scrolling');
-			}
 		}
 		
 		/**
@@ -708,12 +692,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 		 */
 		private function manageFreeScrolling( deltaTime : Number ) : void
 		{
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('---- Start managing free scrolling');
-			}
-			
 			// Physics without paging
 			var f:Point = new Point();
 			var k:Point = new Point();
@@ -783,13 +761,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			// Apply the movement
 			var delta:Point = new Point(x-_content.scrollRect.x, y-_content.scrollRect.y);
 			moveContentFromDelta(delta, deltaTime, SCROLLING_MAX_SPEED, SCROLLING_MAX_SPEED, stopAfter);
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('------ speed = ' + speed + ' | delta = ' + delta + ' | deltaTime = ' + deltaTime);
-				trace('---- Stop managing free scrolling');
-			}
 		}
 		
 		/**
@@ -801,12 +772,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 		 */
 		private function manageForcedAnimatedScrolling( deltaTime : Number ) : void
 		{
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('---- Start managing forced animated scrolling');
-			}
-			
 			// Compute the total distance remaining and let moveContentFromDelta()'s speed control
 			// do the job.
 			var delta:Point = _forcedAnimatedScrollingTarget.subtract(scrollPosition);
@@ -843,13 +808,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 				
 				
 				moveContentFromDelta(delta, deltaTime, _forcedAnimatedScrollingSpeed.x, _forcedAnimatedScrollingSpeed.y, stopAfter);
-			}
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('------ target = ' + _forcedAnimatedScrollingTarget + ' | speed = ' + speed + ' | delta = ' + delta + ' | deltaTime = ' + deltaTime);
-				trace('---- Stop managing forced animated scrolling');
 			}
 		}
 		
@@ -1041,10 +999,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			// If the scrolling is locked by the paging feature, ignore the touch
 			if (_scrollingLockedForPaging)
 			{
-				if (DEBUG)
-				{
-					trace('>> onMouseDown - scrollingLockedForPaging ', "returning...");
-				}
 				return;
 			}
 			
@@ -1061,12 +1015,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			_container.addEventListener(MouseEvent.MOUSE_OUT, onMouseOut, false, 0, true);
 			_container.addEventListener(MouseEvent.MOUSE_UP, onMouseUp, false, 0, true);
 			_container.addEventListener(Event.ENTER_FRAME, onEnterFrame, false, 0, true);
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('>> onMouseDown - _currentFingerPosition = ' + _currentFingerPosition);
-			}
 		}
 		
 		private function onMouseUp( event : MouseEvent ) : void
@@ -1099,12 +1047,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 				_pendingTouch = false;
 				managePaging();
 			}
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('<< onMouseUp - _currentFingerPosition = ' + _currentFingerPosition);
-			}
 		}
 		
 		private function onMouseOut( event : MouseEvent ) : void
@@ -1121,22 +1063,10 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			
 			// Update finger position
 			_currentFingerPosition = new Point(event.stageX, event.stageY);
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('xx onMouseMove - currentFingerPosition = ' + _currentFingerPosition);
-			}
 		}
 		
 		private function onEnterFrame( event : Event ) : void
 		{
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('-- onEnterFrame | speed = ' + speed);
-			}
-			
 			// If content scroll rect not ready, can't do anything
 			if (!_content.scrollRect)
 				return;
@@ -1167,12 +1097,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			
 			// If we are moving, we don't transmit mouse events to children
 			_container.mouseChildren = (speed.x == 0 && speed.y == 0);
-			
-			// DEBUG INFO
-			if (DEBUG)
-			{
-				trace('-- onExitFrame');
-			}
 		}
 		
 		private function onScrollBarFadeOutTimerComplete( event : TimerEvent ) : void

@@ -311,8 +311,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 		}
 		
 		
-		
-		
 		// ------------------------------------------------------------------------------------------
 		//
 		// Public API
@@ -357,62 +355,6 @@ package com.shrimp.ext.scroll.ui.scroll.mobile
 			onContentResize( null );
 			
 		}
-		
-		
-		/**
-         * Draw the viewport area on top of the container 
-         */
-   		public function drawDebug() : void
-    	{
-	           if ( !_container || !_containerViewport )
-		               return;
-	           
-	           
-	           // debug container
-	           var shape : Shape = new Shape();
-	           shape.graphics.lineStyle( 3, 0xFF0000 );
-	           shape.graphics.beginFill( 0xFFFFFF, 0.4 );
-	           shape.graphics.drawRect( _containerViewport.x, _containerViewport.y, _containerViewport.width, _containerViewport.height );
-	           shape.graphics.endFill();
-	           shape.cacheAsBitmap = true;
-	           
-	           _container.addChild( shape );
-	           
-	           // trace to debug content
-	           trace( '---------- SCROLL CONTROLLER : DEBUG CONTENT --------------');
-	           
-	           var contentBounds : Rectangle = _content.getBounds( _content );
-	           trace( 'content bounds   (x, y, w, h) :', int( contentBounds.x ), int( contentBounds.y ), int( contentBounds.width ), int( contentBounds.height ));
-	           
-	           trace( 'content position (x, y, w, h) :', int( _content.x ), int( _content.y ), int( _content.width ), int( _content.height ));
-	           
-	           trace( 'content viewport (x, y, w, h) :', int( _contentViewport.x ), int( _contentViewport.y ), int( _contentViewport.width ), int( _contentViewport.height ));
-	           
-	           if ( _content is DisplayObjectContainer )
-	           {
-		               shape = new Shape();
-		               shape.graphics.lineStyle( 3, 0x00FF00 );
-		               shape.graphics.beginFill( 0xFF0000, 0.4 );
-		               shape.graphics.drawRect( _contentViewport.x, _contentViewport.y, _contentViewport.width, _contentViewport.height );
-		               shape.graphics.endFill();
-		               shape.cacheAsBitmap = true;
-		               
-		               DisplayObjectContainer( _content ).addChild( shape );
-		               
-		               shape = new Shape();
-		               shape.graphics.lineStyle( 3, 0x0000FF );
-		               shape.graphics.beginFill( 0x000000, 0.4 );
-		               shape.graphics.drawCircle( 0, 0, 50 ); // see the origin of the content in parent
-		               shape.graphics.endFill();
-		               shape.cacheAsBitmap = true;
-		               
-		               DisplayObjectContainer( _content ).addChild( shape );
-	           }
-	           else
-	           {
-		               trace( _content );
-	           }
-   	    }
 		
 		public function removeScrollControll() : void
 		{
